@@ -1,4 +1,4 @@
-function set_modal_box(modal_name, color)
+function modal_box(modal_name, color)
     if (not modal_text) or (not modal_bg) then
         local main_screen = hs.screen.mainScreen()
         local main_screen_res = main_screen:fullFrame()
@@ -17,6 +17,33 @@ function set_modal_box(modal_name, color)
     end
     modal_bg:setFillColor(color)
     modal_text:setText(modal_name)
+end
+
+function disable_keys(mode)
+    local key_list = {
+        "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+        "[","]",";","'",",",".","/",
+        "1","2","3","4","5","6","7","8","9","0","-","=",
+        "tab"
+    }
+    for i = 1, #key_list do
+        mode:bind(nil, hs.keycodes.map[key_list[i]], function()
+                -- hs.printf("key [" .. key_list[i] .. "] has disabled on this mode")
+                hs.alert.closeAll()
+                hs.alert.show('DISABLED KEY',{textSize=15, radius=4});
+            end,
+            function()
+                hs.alert.closeAll()
+            end)
+        mode:bind({"shift"}, hs.keycodes.map[key_list[i]], function()
+                -- hs.printf("key [shift + " .. key_list[i] .. "] has disabled on this mode")
+                hs.alert.closeAll()
+                hs.alert.show('DISABLED KEY',{textSize=15, radius=4});
+            end,
+            function()
+                hs.alert.closeAll()
+            end)
+    end
 end
 
 function _arrow_left()
