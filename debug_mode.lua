@@ -3,12 +3,12 @@ debug_mode = hs.hotkey.modal.new()
 local keys_watcher = nil
 
 function debug_mode:entered()
-    modal_box('DEBUG', color.purple)
+    modal_box("DEBUG", color.purple)
     keys_watcher:start()
 end
 
 function debug_mode:exited()
-    modal_box('DOCK', color.black)
+    modal_box("DOCK", color.black)
     keys_watcher:stop()
 end
 

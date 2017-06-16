@@ -18,13 +18,13 @@ color = {
 
 if not module_list then
     module_list = {
-        'util',
-        'dock_mode',
-        'cmd_mode',
-        'debug_mode',
+        "util",
+        "dock_mode",
+        "cmd_mode",
+        "debug_mode",
     }
 end
 
-for i=1,#module_list do
+for i=1, #module_list do
     require(module_list[i])
 end

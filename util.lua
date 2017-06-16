@@ -30,7 +30,7 @@ function disable_keys(mode)
         mode:bind(nil, hs.keycodes.map[key_list[i]], function()
                 -- hs.printf("key [" .. key_list[i] .. "] has disabled on this mode")
                 hs.alert.closeAll()
-                hs.alert.show('DISABLED KEY',{textSize=15, radius=4});
+                hs.alert.show("DISABLED KEY",{textSize=15, radius=4});
             end,
             function()
                 hs.alert.closeAll()
@@ -38,13 +38,20 @@ function disable_keys(mode)
         mode:bind({"shift"}, hs.keycodes.map[key_list[i]], function()
                 -- hs.printf("key [shift + " .. key_list[i] .. "] has disabled on this mode")
                 hs.alert.closeAll()
-                hs.alert.show('DISABLED KEY',{textSize=15, radius=4});
+                hs.alert.show("DISABLED KEY",{textSize=15, radius=4});
             end,
             function()
                 hs.alert.closeAll()
             end)
     end
 end
+
+function print_r(table)
+    for k, v in pairs( table ) do
+        hs.rawprint(v)
+    end
+end
+
 
 function _arrow_left()
     hs.eventtap.keyStroke(nil, "left", 0)
