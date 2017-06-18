@@ -100,3 +100,7 @@ end
 function _jump_to_end_of_line()
     hs.eventtap.keyStroke(nil, "end", 0)
 end
+
+function _escape()
+    hs.eventtap.keyStroke(nil, "escape", 0)
+end

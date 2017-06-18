@@ -23,5 +23,8 @@ dock_mode:bind({"alt"}, hs.keycodes.map["i"], function() _forward_delete() end, 
 dock_mode:bind({"alt", "shift"}, hs.keycodes.map["i"], function() _back_delete() end, nil, function() _back_delete() end)
 dock_mode:bind({"alt"}, hs.keycodes.map["o"], function() _forward_select_word() _forward_delete() end)
 dock_mode:bind({"alt", "shift"}, hs.keycodes.map["o"], function() _back_select_word() _forward_delete() end)
+-- dock_mode:bind(nil, hs.keycodes.map["`"], function() _escape() end)
+-- dock_mode:bind({"alt"}, hs.keycodes.map["`"], function() hs.eventtap.keyStrokes("`") end)
+-- dock_mode:bind({"alt", "shift"}, hs.keycodes.map["`"], function() ap.keyStrokes("~") end)
 
 dock_mode:enter()
