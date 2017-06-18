@@ -27,22 +27,26 @@ function disable_keys(mode)
         "tab"
     }
     for i = 1, #key_list do
-        mode:bind(nil, hs.keycodes.map[key_list[i]], function()
+        mode:bind(nil, hs.keycodes.map[key_list[i]],
+            function()
                 -- hs.printf("key [" .. key_list[i] .. "] has disabled on this mode")
                 hs.alert.closeAll()
                 hs.alert.show("DISABLED KEY",{textSize=15, radius=4});
             end,
             function()
                 hs.alert.closeAll()
-            end)
-        mode:bind({"shift"}, hs.keycodes.map[key_list[i]], function()
+            end
+        )
+        mode:bind({"shift"}, hs.keycodes.map[key_list[i]],
+            function()
                 -- hs.printf("key [shift + " .. key_list[i] .. "] has disabled on this mode")
                 hs.alert.closeAll()
                 hs.alert.show("DISABLED KEY",{textSize=15, radius=4});
             end,
             function()
                 hs.alert.closeAll()
-            end)
+            end
+        )
     end
 end
 
