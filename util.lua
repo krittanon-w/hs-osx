@@ -50,13 +50,11 @@ function disable_keys(mode)
     end
 end
 
-function print_r(table)
-    for k, v in pairs( table ) do
-        hs.rawprint(v)
+function print_table(tbl)
+    for k, v in pairs(tbl) do
+        hs.printf(k .. " = " ..v)
     end
 end
-
-
 function _arrow_left()
     hs.eventtap.keyStroke(nil, "left", 0)
 end
