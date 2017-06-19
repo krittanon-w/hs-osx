@@ -52,5 +52,10 @@ function screen_sq(fnc)
     elseif fnc == "rh" then resize_win("halfleft")
     elseif fnc == "rj" then resize_win("halfdown")
     elseif fnc == "rk" then resize_win("halfup")
+
+    elseif fnc == "ml" then move_win("right")
+    elseif fnc == "mh" then move_win("left")
+    elseif fnc == "mj" then move_win("down")
+    elseif fnc == "mk" then move_win("up")
     end
 end
