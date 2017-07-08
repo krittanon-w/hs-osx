@@ -22,6 +22,7 @@ if not module_list then
         "dock_mode",
         "cmd_mode",
         "debug_mode",
+        "mouse_mode"
     }
 end
 
