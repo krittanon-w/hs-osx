@@ -29,4 +29,4 @@ move_event = move_event or hs.eventtap.new({ hs.eventtap.event.types.mouseMoved 
     end
 )
 
-move_event:start()
+-- move_event:start()
