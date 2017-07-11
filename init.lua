@@ -22,10 +22,15 @@ if not module_list then
         "dock_mode",
         "cmd_mode",
         "debug_mode",
-        "mouse_mode"
+        "mouse_mode",
+        "key_watcher"
     }
 end
 
 for i=1, #module_list do
     require(module_list[i])
 end
+
+
+-- disable cmd h
+hs.hotkey.bind({"cmd"}, hs.keycodes.map["h"], function() end)

@@ -96,13 +96,17 @@ function _back_select_word()
 end
 
 function _jump_to_start_of_line()
-    hs.eventtap.keyStroke(nil, "home", 0)
+    hs.eventtap.keyStroke({"cmd"}, "left", 0)
 end
 
 function _jump_to_end_of_line()
-    hs.eventtap.keyStroke(nil, "end", 0)
+    hs.eventtap.keyStroke({"cmd"}, "right", 0)
 end
 
 function _escape()
     hs.eventtap.keyStroke(nil, "escape", 0)
+end
+
+function _enter()
+    hs.eventtap.keyStroke(nil, "return", 0)
 end
