@@ -26,4 +26,6 @@ dock_mode:bind({"alt", "shift"}, hs.keycodes.map["o"], function() _back_select_w
 dock_mode:bind({"alt"}, hs.keycodes.map["o"], function() _forward_select_word() _forward_delete() end)
 dock_mode:bind({"alt"}, hs.keycodes.map["m"], function() _enter() end)
 
+dock_mode:bind({"cmd"}, hs.keycodes.map["m"], function() end)
+
 dock_mode:enter()
