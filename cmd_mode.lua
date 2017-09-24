@@ -70,5 +70,4 @@ keys_watcher = keys_watcher or hs.eventtap.new({ hs.eventtap.event.types.keyUp }
 
 cmd_mode:bind(nil, hs.keycodes.map["escape"], function() cmd_mode:exit() end)
 
-hs.hotkey.bind({"alt"}, hs.keycodes.map["m"], function() cmd_mode:enter() end)
-hs.hotkey.bind({"cmd"}, hs.keycodes.map["m"], function() cmd_mode:enter() end)
+hs.hotkey.bind({"alt"}, hs.keycodes.map["4"], function() cmd_mode:enter() end)
