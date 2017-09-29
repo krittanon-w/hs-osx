@@ -110,3 +110,11 @@ end
 function _enter()
     hs.eventtap.keyStroke(nil, "return", 0)
 end
+
+function _switch_to_EN()
+    hs.keycodes.setLayout("ABC")
+end
+
+function _switch__to_TH()
+    hs.keycodes.setLayout("Thai")
+end
