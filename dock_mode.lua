@@ -31,7 +31,7 @@ dock_mode:bind({"cmd"}, hs.keycodes.map["m"], function() end)
 
 -- auto switch language to EN
 dock_mode:bind({"alt"}, hs.keycodes.map["s"], function()
-    hs.eventtap.keyStroke({"alt"}, "=", 0)
+    hs.eventtap.keyStroke({"alt"}, "0", 0)
     _switch_to_EN()
 end)
 
