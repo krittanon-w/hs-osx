@@ -1,0 +1,44 @@
+-- local keys_watcher = nil
+-- local count = 1
+-- local limit = 10
+-- local last_dir = 0
+
+-- local scroll_event_type = hs.eventtap.event.newScrollEvent({vertical=100}, {"cmd"}, "pixel"):getType()
+-- print(scroll_event_type)
+-- -- scroll_event = hs.eventtap.new({hs.eventtap.event.types.scrollWheel}, function(event)
+-- --     local scroll_val = event:getProperty(hs.eventtap.event.properties.scrollWheelEventPointDeltaAxis2)
+-- --     if scroll_val ~= 0 then
+-- --         count = count + 1
+-- --         if scroll_val > 15 then
+-- --             count = count + 1
+-- --         end
+-- --         if count%25 == 0 then
+-- --         -- if scroll_ac ~= 0 then
+-- --             if scroll_val > 0 then
+-- --                 _next_tab()
+-- --             else
+-- --                 _previous_tab()
+-- --             end
+-- --         end
+-- --     end
+-- -- end)
+-- hs.eventtap.scrollWheel(offsets, modifiers, unit)
+-- scroll_event = hs.eventtap.new({scroll_event_type}, function(event)
+--     print(event)
+--     -- local scroll_val = event:getProperty(hs.eventtap.event.properties.scrollWheelEventPointDeltaAxis2)
+--     -- if scroll_val ~= 0 then
+--     --     count = count + 1
+--     --     if scroll_val > 15 then
+--     --         count = count + 1
+--     --     end
+--     --     if count%25 == 0 then
+--     --     -- if scroll_ac ~= 0 then
+--     --         if scroll_val > 0 then
+--     --             _next_tab()
+--     --         else
+--     --             _previous_tab()
+--     --         end
+--     --     end
+--     -- end
+-- end):start()
+
