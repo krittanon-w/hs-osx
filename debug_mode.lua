@@ -21,7 +21,5 @@ keys_watcher = keys_watcher or hs.eventtap.new({ hs.eventtap.event.types.keyUp, 
     end
 )
 
+hs.hotkey.bind({"alt"}, hs.keycodes.map["v"], function() debug_mode:enter() end)
 debug_mode:bind(nil, "escape", function() debug_mode:exit() end)
-
-
-hs.hotkey.bind({"ctrl"}, "d", function() debug_mode:enter() end)

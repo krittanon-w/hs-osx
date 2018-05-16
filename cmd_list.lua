@@ -46,16 +46,16 @@ local function resize_win(dir_name)
     end
 end
 
-function screen_sq(fnc)
-    if fnc == "rf" then resize_win("fullscreen")
-    elseif fnc == "rl" then resize_win("halfright")
-    elseif fnc == "rh" then resize_win("halfleft")
-    elseif fnc == "rj" then resize_win("halfdown")
-    elseif fnc == "rk" then resize_win("halfup")
+function get_cmd(cmd)
+    if cmd == "ssrf" then resize_win("fullscreen")
+    elseif cmd == "ssrl" then resize_win("halfright")
+    elseif cmd == "ssrh" then resize_win("halfleft")
+    elseif cmd == "ssrj" then resize_win("halfdown")
+    elseif cmd == "ssrk" then resize_win("halfup")
 
-    elseif fnc == "ml" then move_win("right")
-    elseif fnc == "mh" then move_win("left")
-    elseif fnc == "mj" then move_win("down")
-    elseif fnc == "mk" then move_win("up")
+    elseif cmd == "ssml" then move_win("right")
+    elseif cmd == "ssmh" then move_win("left")
+    elseif cmd == "ssmj" then move_win("down")
+    elseif cmd == "ssmk" then move_win("up")
     end
 end

@@ -55,6 +55,7 @@ function print_table(tbl)
         hs.printf(k .. " = " ..v)
     end
 end
+
 function _arrow_left()
     hs.eventtap.keyStroke(nil, "left", 0)
 end
@@ -117,4 +118,12 @@ end
 
 function _switch__to_TH()
     hs.keycodes.setLayout("Thai")
+end
+
+function _next_tab()
+    hs.eventtap.keyStroke({"ctrl"}, "tab", 0)
+end
+
+function _previous_tab()
+    hs.eventtap.keyStroke({"ctrl", "shift"}, "tab", 0)
 end

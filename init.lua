@@ -3,7 +3,7 @@ hs.hotkey.alertDuration = 0
 hs.hints.showTitleThresh = 0
 hs.window.animationDuration = 0
 
--- defind
+-- defind global var
 color = {
     white = hs.drawing.color.white,
     black = hs.drawing.color.black,
@@ -16,13 +16,15 @@ color = {
     purple = hs.drawing.color.x11.purple
 }
 
+-- include files
 if not module_list then
     module_list = {
-        "util",
+        "functions",
         "dock_mode",
         "cmd_mode",
-        "debug_mode",
-        "mouse_mode",
+        "test_mode",
+        -- "debug_mode",
+        -- "mouse_mode",
         "key_watcher"
     }
 end
@@ -33,4 +35,4 @@ end
 
 
 -- disable cmd h
-hs.hotkey.bind({"cmd"}, hs.keycodes.map["h"], function() end)
+-- hs.hotkey.bind({"cmd"}, hs.keycodes.map["h"], function() end)
