@@ -1,3 +1,11 @@
+-- import
+require("cmd_list")
+
+
+-- init
+
+
+-- main
 dock_mode = hs.hotkey.modal.new()
 
 function dock_mode:entered()
@@ -30,6 +38,8 @@ dock_mode:bind({"alt"}, hs.keycodes.map["e"], nil, function() _next_tab()  end)
 dock_mode:bind({"alt"}, hs.keycodes.map["w"], nil, function() _previous_tab() end)
 
 dock_mode:bind({"alt"}, hs.keycodes.map["m"], function() _enter() end)
+
+dock_mode:bind({"alt"}, hs.keycodes.map["f"], function() resize_win("fullscreen") end)
 
 
 -- disable mininize and hide widows

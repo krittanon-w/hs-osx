@@ -1,4 +1,7 @@
-local function move_win(dir_name)
+-- NOTE
+-- all of funtion is on global scope
+
+function move_win(dir_name)
     local win = hs.window.focusedWindow()
     local screen = win:screen()
     if win then
@@ -10,7 +13,7 @@ local function move_win(dir_name)
     end
 end
 
-local function resize_win(dir_name)
+function resize_win(dir_name)
     local win = hs.window.focusedWindow()
     if win then
         local f = win:frame()
