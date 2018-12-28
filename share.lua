@@ -1,3 +1,51 @@
+function move_win(mode)
+    local win = hs.window.focusedWindow()
+    local screen = win:screen()
+    if win then
+        if mode == 'up' then win:moveOneScreenNorth()
+        elseif mode == 'down' then win:moveOneScreenSouth()
+        elseif mode == 'left' then win:moveOneScreenWest()
+        elseif mode == 'right' then win:moveOneScreenEast()
+        end
+    end
+end
+
+function resize_win(mode)
+    local win = hs.window.focusedWindow()
+    if win then
+        local f = win:frame()
+        local screen = win:screen()
+        local max = screen:fullFrame()
+        local stepw = max.w/30
+        local steph = max.h/30
+        if mode == "fullscreen" then f = max
+        elseif mode == "halfright" then f.x = max.w/2 f.y = 0 f.w = max.w/2 f.h = max.h
+        elseif mode == "halfleft" then f.x = 0 f.y = 0 f.w = max.w/2 f.h = max.h
+        elseif mode == "halfup" then f.x = 0 f.y = 0 f.w = max.w f.h = max.h/2
+        elseif mode == "halfdown" then f.x = 0 f.y = max.h/2 f.w = max.w f.h = max.h/2
+        elseif mode == "right" then f.w = f.w+stepw
+        elseif mode == "left" then f.w = f.w-stepw
+        elseif mode == "up" then f.h = f.h-steph
+        elseif mode == "down" then f.h = f.h+steph
+        elseif mode == "cornerNE" then f.x = max.w/2 f.y = 0 f.w = max.w/2 f.h = max.h/2
+        elseif mode == "cornerSE" then f.x = max.w/2 f.y = max.h/2 f.w = max.w/2 f.h = max.h/2
+        elseif mode == "cornerNW" then f.x = 0 f.y = 0 f.w = max.w/2 f.h = max.h/2
+        elseif mode == "cornerSW" then f.x = 0 f.y = max.h/2 f.w = max.w/2 f.h = max.h/2
+        elseif mode == "center" then f.x = (max.w-f.w)/2 f.y = (max.h-f.h)/2
+        elseif mode == "fcenter" then f.x = stepw*5 f.y = steph*5 f.w = stepw*20 f.h = steph*20
+        elseif mode == "shrink" then f.x = f.x+stepw f.y = f.y+steph f.w = f.w-(stepw*2) f.h = f.h-(steph*2)
+        elseif mode == "expand" then f.x = f.x-stepw f.y = f.y-steph f.w = f.w+(stepw*2) f.h = f.h+(steph*2)
+        elseif mode == "mright" then f.x = f.x+stepw
+        elseif mode == "mleft" then f.x = f.x-stepw
+        elseif mode == "mup" then f.y = f.y-steph
+        elseif mode == "mdown" then f.y = f.y+steph
+        end
+        win:setFrame(f)
+    else
+        hs.alert.show("[WARN] resize_win: No focused window!")
+    end
+end
+
 function modal_box(modal_name, color)
     if (not modal_text) or (not modal_bg) then
         local main_screen = hs.screen.mainScreen()
@@ -19,7 +67,7 @@ function modal_box(modal_name, color)
     modal_text:setText(modal_name)
 end
 
-function disable_keys(mode)
+function disable_all_keys(mode)
     local key_list = {
         "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
         "[","]",";","'",",",".","/",
@@ -56,74 +104,74 @@ function print_table(tbl)
     end
 end
 
-function _arrow_left()
+function arrow_left()
     hs.eventtap.keyStroke(nil, "left", 0)
 end
 
-function _arrow_right()
+function arrow_right()
     hs.eventtap.keyStroke(nil, "right", 0)
 end
 
-function _arrow_up()
+function arrow_up()
     hs.eventtap.keyStroke(nil, "up", 0)
 end
 
-function _arrow_down()
+function arrow_down()
     hs.eventtap.keyStroke(nil, "down", 0)
 end
 
-function _jump_start_word()
+function jump_start_word()
     hs.eventtap.keyStroke({"alt"}, "left", 0)
 end
 
-function _jump_end_word()
+function jump_end_word()
     hs.eventtap.keyStroke({"alt"}, "right", 0)
 end
 
-function _forward_delete()
+function forward_delete()
     hs.eventtap.keyStroke(nil, "delete", 0)
 end
 
-function _back_delete()
+function back_delete()
     hs.eventtap.keyStroke(nil, "forwarddelete", 0)
 end
 
-function _forward_select_word()
+function forward_select_word()
     hs.eventtap.keyStroke({"alt","shift"}, "left", 0)
 end
 
-function _back_select_word()
+function back_select_word()
     hs.eventtap.keyStroke({"alt","shift"}, "right", 0)
 end
 
-function _jump_to_start_of_line()
+function jump_to_start_of_line()
     hs.eventtap.keyStroke({"cmd"}, "left", 0)
 end
 
-function _jump_to_end_of_line()
+function jump_to_end_of_line()
     hs.eventtap.keyStroke({"cmd"}, "right", 0)
 end
 
-function _escape()
+function escape()
     hs.eventtap.keyStroke(nil, "escape", 0)
 end
 
-function _enter()
+function enter()
     hs.eventtap.keyStroke(nil, "return", 0)
 end
 
-function _switch_to_EN()
+function switch_to_en()
     hs.keycodes.setLayout("ABC")
 end
 
-function _switch__to_TH()
+function switch_to_th()
     hs.keycodes.setLayout("Thai")
 end
 
-function _next_tab()
+function next_tab()
     hs.eventtap.keyStroke({"ctrl"}, "tab", 0)
 end
 
-function _previous_tab()
+function previous_tab()
     hs.eventtap.keyStroke({"ctrl", "shift"}, "tab", 0)
 end

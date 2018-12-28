@@ -8,7 +8,7 @@ function debug_mode:entered()
 end
 
 function debug_mode:exited()
-    modal_box("DOCK", color.black)
+    -- modal_box("DOCK", color.black)
     keys_watcher:stop()
 end
 
