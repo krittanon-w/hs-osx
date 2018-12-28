@@ -67,6 +67,19 @@ function modal_box(modal_name, color)
     modal_text:setText(modal_name)
 end
 
+function modal_message(text)
+    local config = {
+        strokeWidth = 0,
+        strokeColor = { alpha = 0 },
+        fillColor = { white = 0, alpha = 0.5 },
+        radius = 6,
+        textSize = 16,
+        fadeInDuration = 0.2,
+        fadeOutDuration = 0.3
+    }
+    hs.alert.show(text, config)
+end
+
 function disable_all_keys(mode)
     local key_list = {
         "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",

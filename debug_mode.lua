@@ -8,18 +8,24 @@ function debug_mode:entered()
 end
 
 function debug_mode:exited()
-    -- modal_box("DOCK", color.black)
     keys_watcher:stop()
 end
 
-keys_watcher = keys_watcher or hs.eventtap.new({ hs.eventtap.event.types.keyUp, hs.eventtap.event.types.flagsChanged },
-    function(event)
-        local key_code = event:getKeyCode()
-        local key_char = hs.keycodes.map[key_code]
-        hs.printf("[" .. key_code .. ", " .. key_char .. "]")
-        return false
-    end
-)
+local event_types = { 
+    hs.eventtap.event.types.keyUp, 
+    hs.eventtap.event.types.flagsChanged
+}
 
-hs.hotkey.bind({"alt"}, hs.keycodes.map["v"], function() debug_mode:enter() end)
-debug_mode:bind(nil, "escape", function() debug_mode:exit() end)
+keys_watcher = keys_watcher or hs.eventtap.new(event_types, function(event)
+    local key_code = event:getKeyCode()
+    local key_char = hs.keycodes.map[key_code]
+    hs.printf("[" .. key_code .. ", " .. key_char .. "]")
+    return false
+end)
+
+hs.hotkey.bind({"alt", "cmd"}, hs.keycodes.map["d"], function() debug_mode:enter() end)
+
+debug_mode:bind(nil, "escape", function() 
+    debug_mode:exit() 
+    dock_mode:enter()
+end)
