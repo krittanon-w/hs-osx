@@ -27,8 +27,8 @@ keys_watcher = keys_watcher or hs.eventtap.new(key_events, function(event)
 end)
 
 apps_watcher = apps_watcher or hs.application.watcher.new(function(app_name, app_event, app)
-    hs.printf("app ", app_name)
-    hs.printf("event ", app_event)
+    hs.printf("app " .. app_name)
+    hs.printf("event " .. app_event)
 end)
 
 hs.hotkey.bind({"alt", "cmd"}, hs.keycodes.map["d"], function() debug_mode:enter() end)
