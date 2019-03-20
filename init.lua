@@ -4,7 +4,8 @@ if not module_list then
         "config",
         "share",
         "dock_mode",
-        "debug_mode"
+        "debug_mode",
+        "tr-asset-id",
     }
 end
 

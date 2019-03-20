@@ -67,6 +67,27 @@ function modal_box(modal_name, color)
     modal_text:setText(modal_name)
 end
 
+-- function modal_circle(modal_name, color)
+--     if (not modal_text) or (not modal_bg) then
+--         local main_screen = hs.screen.mainScreen()
+--         local main_screen_res = main_screen:fullFrame()
+--         local modal_bg_rect = hs.geometry.rect(main_screen_res.w-82,0,82,22)
+--         local modal_text_rect = hs.geometry.rect(main_screen_res.w-82,2,82,22)
+--         modal_bg = hs.drawing.rectangle(modal_bg_rect)
+--         modal_bg:setStroke(false)
+--         modal_bg:setLevel(hs.drawing.windowLevels.popUpMenu)
+--         modal_bg:setBehavior(hs.drawing.windowBehaviors.canJoinAllSpaces+hs.drawing.windowBehaviors.stationary)
+--         local styled_text = hs.styledtext.new("init...", {font={size=12.0, color=color.white}, paragraphStyle={alignment="center"}})
+--         modal_text = hs.drawing.text(modal_text_rect, styled_text)
+--         modal_text:setLevel(hs.drawing.windowLevels.popUpMenu)
+--         modal_text:setBehavior(hs.drawing.windowBehaviors.canJoinAllSpaces+hs.drawing.windowBehaviors.stationary)
+--         modal_bg:show()
+--         modal_text:show()
+--     end
+--     modal_bg:setFillColor(color)
+--     modal_text:setText(modal_name)
+-- end
+
 function modal_message(text)
     local config = {
         strokeWidth = 0,
@@ -187,4 +208,32 @@ end
 
 function previous_tab()
     hs.eventtap.keyStroke({"ctrl", "shift"}, "tab", 0)
+end
+
+function move_line_down()
+    hs.eventtap.keyStroke({"cmd"}, "left", 0)
+    hs.eventtap.keyStroke({"cmd"}, "left", 0)
+    hs.eventtap.keyStroke({"cmd", "shift"}, "right", 0)
+    hs.eventtap.keyStroke({"cmd"},  hs.keycodes.map["x"], 0)
+    hs.eventtap.keyStroke(nil,  "delete", 0)
+    hs.eventtap.keyStroke(nil,  "down", 0)
+    hs.eventtap.keyStroke({"cmd"}, "right", 0)
+    hs.eventtap.keyStroke(nil,  "return", 0)
+    hs.eventtap.keyStroke({"cmd"},  hs.keycodes.map["v"], 0)
+    hs.eventtap.keyStroke({"cmd"}, "right", 0)
+end
+
+
+function move_line_up()
+    hs.eventtap.keyStroke({"cmd"}, "left", 0)
+    hs.eventtap.keyStroke({"cmd"}, "left", 0)
+    hs.eventtap.keyStroke({"cmd", "shift"}, "right", 0)
+    hs.eventtap.keyStroke({"cmd"},  hs.keycodes.map["x"], 0)
+    hs.eventtap.keyStroke(nil,  "delete", 0)
+    -- hs.eventtap.keyStroke(nil,  "up", 0)
+    hs.eventtap.keyStroke(nil,  "up", 0)
+    hs.eventtap.keyStroke({"cmd"}, "right", 0)
+    hs.eventtap.keyStroke(nil,  "return", 0)
+    hs.eventtap.keyStroke({"cmd"},  hs.keycodes.map["v"], 0)
+    hs.eventtap.keyStroke({"cmd"}, "right", 0)
 end

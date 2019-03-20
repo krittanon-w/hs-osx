@@ -1,13 +1,18 @@
 dock_mode = hs.hotkey.modal.new()
 
--- init dock_mode
+-- init dock_mode --
+local apps_watcher = nil 
+
 function dock_mode:entered()
     modal_box("DOCK", color.black)
+    -- apps_watcher:start()
 end
 
 function dock_mode:exited()
-
+    -- apps_watcher:stop()
 end
+
+-- main --
 
 -- vim arrow key 
 dock_mode:bind({"alt"}, hs.keycodes.map["h"], function() arrow_left() end, nil, function() arrow_left() end)
@@ -42,6 +47,25 @@ dock_mode:bind({"alt"}, hs.keycodes.map["s"], function()
     hs.eventtap.keyStroke({"ctrl"}, "9", 0)
     switch_to_en()
 end)
+
+
+-- enable/disable spicial mode
+-- apps_watcher = apps_watcher or hs.application.watcher.new(function(app_name, app_event, app)
+--     local move_line_up = nil
+--     local move_line_down = nil
+--     if (app_name == "Code" and app_event ~= hs.application.watcher.activated) then
+--         move_line_down = dock_mode:bind({"cmd"}, hs.keycodes.map["j"], function() move_line_down() end)
+--         move_line_up = dock_mode:bind({"cmd"}, hs.keycodes.map["k"], function() move_line_up() end)
+--         dock_mode:enter()
+--         modal_message("VS Code is not active")
+--     else
+--         if move_line_up ~= nil then
+--             move_line_down:delete()
+--             move_line_up:delete()
+--             modal_message("delete kwy")
+--         end
+--     end
+-- end)
 
 dock_mode:enter()
 
