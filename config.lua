@@ -1,3 +1,17 @@
+-- setup default style of alert
+alert_style = {
+    strokeWidth = 0,
+    strokeColor = { alpha = 0 },
+    fillColor = { white = 0, alpha = 0.55 },
+    radius = 4,
+    textSize = 16,
+    fadeInDuration = 0.15,
+    fadeOutDuration = 0.15
+}
+for k, v in pairs(alert_style) do
+    hs.alert.defaultStyle[k] = v
+end
+
 -- Config
 hs.hotkey.alertDuration = 0
 hs.hints.showTitleThresh = 0
