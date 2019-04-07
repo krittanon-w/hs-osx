@@ -10,25 +10,33 @@ function getKeyCode(key)
     return hs.keycodes.map[key]
 end
 
-function box(modal_name, color)
-    if (not modal_text) or (not modal_bg) then
-        local main_screen = hs.screen.mainScreen()
-        local main_screen_res = main_screen:fullFrame()
-        local modal_bg_rect = hs.geometry.rect(main_screen_res.w-82,0,82,22)
-        local modal_text_rect = hs.geometry.rect(main_screen_res.w-82,2,82,22)
-        modal_bg = hs.drawing.rectangle(modal_bg_rect)
-        modal_bg:setStroke(false)
-        modal_bg:setLevel(hs.drawing.windowLevels.popUpMenu)
-        modal_bg:setBehavior(hs.drawing.windowBehaviors.canJoinAllSpaces+hs.drawing.windowBehaviors.stationary)
+box = {}
+function box:show(modal_name, color)
+    if (not box_text) or (not box_bg) then
+        main_screen = hs.screen.mainScreen()
+        main_screen_res = main_screen:fullFrame()
+        box_bg_rect = hs.geometry.rect(main_screen_res.w-112,0,112,22)
+        box_text_rect = hs.geometry.rect(main_screen_res.w-112,2,112,22)
+        box_bg = hs.drawing.rectangle(box_bg_rect)
+        box_bg:setStroke(false)
+        box_bg:setLevel(hs.drawing.windowLevels.popUpMenu)
+        box_bg:setBehavior(hs.drawing.windowBehaviors.canJoinAllSpaces+hs.drawing.windowBehaviors.stationary)
         local styled_text = hs.styledtext.new("init...", {font={size=12.0, color=color.white}, paragraphStyle={alignment="center"}})
-        modal_text = hs.drawing.text(modal_text_rect, styled_text)
-        modal_text:setLevel(hs.drawing.windowLevels.popUpMenu)
-        modal_text:setBehavior(hs.drawing.windowBehaviors.canJoinAllSpaces+hs.drawing.windowBehaviors.stationary)
-        modal_bg:show()
-        modal_text:show()
+        box_text = hs.drawing.text(box_text_rect, styled_text)
+        box_text:setLevel(hs.drawing.windowLevels.popUpMenu)
+        box_text:setBehavior(hs.drawing.windowBehaviors.canJoinAllSpaces+hs.drawing.windowBehaviors.stationary)
+        box_bg:show()
+        box_text:show()
     end
-    modal_bg:setFillColor(color)
-    modal_text:setText(modal_name)
+    box_bg:setFillColor(color)
+    box_text:setText(modal_name)
+end
+
+function box:delete()
+    -- if (not box_text) or (not box_bg) then
+        box_bg:hide()
+        box_text:hide()
+    -- end
 end
 
 function alert(text)

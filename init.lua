@@ -8,7 +8,6 @@ hs.loadSpoon("ModalMan")
 
 if not hspoon_list then
     hspoon_list = {
-        "Dock",
         "Vim",
         "Resize",
     }
@@ -96,11 +95,11 @@ if spoon.Vim then
             -- Deactivate some modal environments or not before activating a new one
             spoon.ModalMan:deactivateAll()
             -- Show an status indicator so we know we"re in some modal environment now
-            spoon.ModalMan:activate({"VimMode"}, "#019833")
+            spoon.ModalMan:activate({"VimMode"}, "#000000")
         end)
     end
     -- auto trigger when hs loaded
-    spoon.ModalMan:activate({"VimMode"}, "#019833")
+    spoon.ModalMan:activate({"VimMode"}, "#000000")
 end
 
 spoon.ModalMan:getInstance():enter()
