@@ -5,7 +5,6 @@ require("setup")
 
 hs.loadSpoon("ModalMan")
 -- automatic load ModalManager
-spoon.ModalMan:getInstance():enter()
 
 if not hspoon_list then
     hspoon_list = {
@@ -104,4 +103,5 @@ if spoon.Vim then
     spoon.ModalMan:activate({"VimMode"}, "#019833")
 end
 
+spoon.ModalMan:getInstance():enter()
 hs.alert("- HammerSpoon -")
