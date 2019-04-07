@@ -7,7 +7,7 @@ hs.hotkey.bind({"ctrl", "alt", "cmd"}, getKeyCode("r"),
 )
 
 -- trigger Alfred
-hs.hotkey.bind({"alt"}, getKeyCode("S"),
+hs.hotkey.bind({"alt"}, getKeyCode("N"),
     function()
         switchToEN()
         hs.eventtap.keyStroke({"ctrl"}, getKeyCode("9"), 0)
