@@ -81,8 +81,6 @@ if spoon.Vim then
     
     cmodal:bind({"alt", "shift"}, getKeyCode("H"), function() spoon.Vim:jump("left_word") end, nil, function() spoon.Vim:jump("left_word") end)
     cmodal:bind({"alt", "shift"}, getKeyCode("L"), function() spoon.Vim:jump("right_word") end, nil, function() spoon.Vim:jump("right_word") end)
-    
-    cmodal:bind({"cmd"}, getKeyCode("M"), function() hs.hints.windowHints() end)
 
     hsVimMode_keys = hsVimMode_keys or {"alt", "V"}
     if string.len(hsVimMode_keys[2]) > 0 then
