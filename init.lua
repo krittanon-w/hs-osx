@@ -18,9 +18,9 @@ for k, v in pairs(hspoon_list) do
     hs.loadSpoon(v)
 end
 
--- map keys
+    -- map keys 
 if spoon.Resize then
-    spoon.ModalMan:new("ResizeMode")
+    spoon.ModalMan:new("ResizeMode", "#d50206")
     local cmodal = spoon.ModalMan.modal_list["ResizeMode"]
     cmodal:bind(nil, "escape", "Deactivate ResizeMode", function() spoon.ModalMan:deactivate({"ResizeMode"}) end)
     cmodal:bind(nil, "Q", "Deactivate ResizeMode", function() spoon.ModalMan:deactivate({"ResizeMode"}) end)
@@ -47,15 +47,11 @@ if spoon.Resize then
     cmodal:bind(nil, getKeyCode("["), "Undo Resizedow Manipulation", function() spoon.Resize:undo() end)
     cmodal:bind(nil, getKeyCode("]"), "Redo Resizedow Manipulation", function() spoon.Resize:redo() end)
 
-    -- Register ResizeMode with modal supervisor
     hsResizeMode_keys = hsResizeMode_keys or {"alt", "R"}
     if string.len(hsResizeMode_keys[2]) > 0 then
-        -- disableAllKey(spoon.ModalMan:getInstance())
         spoon.ModalMan.supervisor:bind(hsResizeMode_keys[1], hsResizeMode_keys[2], "Enter ResizeMode Environment", function()
-            -- Deactivate some modal environments or not before activating a new one
             spoon.ModalMan:deactivateAll()
-            -- Show an status indicator so we know we"re in some modal environment now
-            spoon.ModalMan:activate({"ResizeMode"}, "#B22222")
+            spoon.ModalMan:activate({"ResizeMode"})
         end)
     end
 end
@@ -63,7 +59,7 @@ end
 
 
 if spoon.Vim then
-    spoon.ModalMan:new("VimMode")
+    spoon.ModalMan:new("VimMode", "#000000")
     local cmodal = spoon.ModalMan.modal_list["VimMode"]
     local modsA = {"alt"}
     local modsB = {"alt", "shift"}
@@ -88,18 +84,16 @@ if spoon.Vim then
     cmodal:bind(modsB, getKeyCode("H"), function() spoon.Vim:jump("left_word") end, nil, function() spoon.Vim:jump("left_word") end)
     cmodal:bind(modsB, getKeyCode("L"), function() spoon.Vim:jump("right_word") end, nil, function() spoon.Vim:jump("right_word") end)
 
-    -- Register ResizeMode with modal supervisor
     hsVimMode_keys = hsVimMode_keys or {"alt", "V"}
     if string.len(hsVimMode_keys[2]) > 0 then
         spoon.ModalMan.supervisor:bind(hsVimMode_keys[1], hsVimMode_keys[2], "Enter VimMode Environment", function()
-            -- Deactivate some modal environments or not before activating a new one
             spoon.ModalMan:deactivateAll()
-            -- Show an status indicator so we know we"re in some modal environment now
-            spoon.ModalMan:activate({"VimMode"}, "#000000")
+            spoon.ModalMan:activate({"VimMode"})
         end)
     end
+
     -- auto trigger when hs loaded
-    spoon.ModalMan:activate({"VimMode"}, "#000000")
+    spoon.ModalMan:activate({"VimMode"})
 end
 
 spoon.ModalMan:getInstance():enter()
