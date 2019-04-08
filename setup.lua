@@ -16,6 +16,8 @@ hs.hotkey.bind({"cmd"}, getKeyCode("N"),
 )
 
 -- trigger windowHints
+hs.hints.fontSize = "14"
+hs.hints.style = "vimperator"
 hs.hotkey.bind({"cmd"}, getKeyCode("M"),
     function()
         switchToEN()
