@@ -22,7 +22,6 @@ obj.history = {}
 --- An integer specifying how many gridparts the screen should be divided into. Defaults to 30.
 obj.gridparts = 30
 
-
 function obj:stepMove(direction)
     local cwin = hs.window.focusedResizedow()                                             
     if cwin then
@@ -44,7 +43,6 @@ function obj:stepMove(direction)
         hs.alert.show("No focused window!")
     end
 end
-
 
 function obj:stepResize(direction)
     local cwin = hs.window.focusedResizedow()
@@ -68,7 +66,6 @@ function obj:stepResize(direction)
     end
 end
 
-
 local function isInHistory(windowid)
     for idx,val in ipairs(obj.history) do
         if val[1] == windowid then
@@ -77,7 +74,6 @@ local function isInHistory(windowid)
     end
     return false
 end
-
 
 function obj:stash()
     local cwin = hs.window.focusedWindow()
@@ -107,7 +103,6 @@ function obj:stash()
         table.insert(obj.history, 1, newtable)
     end
 end
-
 
 function obj:moveAndResize(option)
     local cwin = hs.window.focusedWindow()
