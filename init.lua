@@ -95,6 +95,8 @@ if spoon.Vim then
 end
 
 spoon.ModalMan:getInstance():enter()
+beep()
 hs.alert("- HammerSpoon -")
+
 -- hs.hints.windowHints()
 

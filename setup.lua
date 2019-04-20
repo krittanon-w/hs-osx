@@ -18,9 +18,13 @@ hs.hotkey.bind({"cmd"}, getKeyCode("N"),
 -- trigger windowHints
 hs.hints.fontSize = "14"
 hs.hints.style = "vimperator"
-hs.hotkey.bind({"cmd"}, getKeyCode("M"),
+hs.hotkey.bind({"cmd"}, getKeyCode("D"),
     function()
         switchToEN()
         hs.hints.windowHints()
     end
 )
+
+-- triger bluetooth every 15 min
+local time = 15 -- minus
+hs.timer.doEvery(time * 60, function() beep(0.20) end)

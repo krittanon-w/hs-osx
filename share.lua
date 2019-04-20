@@ -34,3 +34,11 @@ function disableAllKey(modal)
         )
     end
 end
+
+function beep(volume)
+    volume = volume or 1.0
+    local file = "/System/Library/Sounds/Submarine.aiff"
+    local sould = hs.sound.getByFile(file)
+    sould:volume(volume)
+    sould:play()
+end
