@@ -17,9 +17,9 @@ dock_mode:bind({"alt"}, hs.keycodes.map["j"], function() arrow_down() end, nil, 
 
 -- edit word
 dock_mode:bind({"alt"}, hs.keycodes.map["o"], function() forward_select_word() forward_delete() end)
-dock_mode:bind({"alt", "shift"}, hs.keycodes.map["o"], function() back_select_word() forward_delete() end)
+-- dock_mode:bind({"alt", "shift"}, hs.keycodes.map["o"], function() back_select_word() forward_delete() end)
 dock_mode:bind({"alt"}, hs.keycodes.map["i"], function() forward_delete() end, nil, function() forward_delete() end)
-dock_mode:bind({"alt", "shift"}, hs.keycodes.map["i"], function() back_delete() end, nil, function() back_delete() end)
+dock_mode:bind({"alt"}, hs.keycodes.map["o"], function() back_delete() end, nil, function() back_delete() end)
 
 -- arrow jump
 dock_mode:bind({"alt", "shift"}, hs.keycodes.map["h"], function() jump_to_start_of_line() end)

@@ -15,10 +15,17 @@ hs.hotkey.bind({"cmd"}, getKeyCode("N"),
     end
 )
 
+-- diable minimize
+hs.hotkey.bind({"cmd"}, getKeyCode("M"),
+    function()
+
+    end
+)
+
 -- trigger windowHints
 hs.hints.fontSize = "14"
 hs.hints.style = "vimperator"
-hs.hotkey.bind({"cmd"}, getKeyCode("D"),
+hs.hotkey.bind({"cmd"}, getKeyCode("e"),
     function()
         switchToEN()
         hs.hints.windowHints()
