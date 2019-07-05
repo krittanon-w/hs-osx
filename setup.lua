@@ -8,17 +8,24 @@ hs.hotkey.bind({"ctrl", "alt", "cmd"}, getKeyCode("R"),
 )
 
 -- trigger Alfred
-hs.hotkey.bind({"cmd"}, getKeyCode("N"),
+hs.hotkey.bind({"cmd"}, getKeyCode("M"),
     function()
         switchToEN()
         hs.eventtap.keyStroke({"ctrl"}, getKeyCode("9"), 0)
     end
 )
 
--- diable minimize
-hs.hotkey.bind({"cmd"}, getKeyCode("M"),
+-- tab switch
+hs.hotkey.bind({"cmd"}, getKeyCode("3"),
     function()
-
+        switchToEN()
+        hs.eventtap.keyStroke({"ctrl"}, getKeyCode("tab"), 0)
+    end
+)
+hs.hotkey.bind({"cmd"}, getKeyCode("2"),
+    function()
+        switchToEN()
+        hs.eventtap.keyStroke({"ctrl", "shift"}, getKeyCode("tab"), 0)
     end
 )
 
